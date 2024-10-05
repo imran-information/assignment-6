@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peddy</title>
+
+    <!-- daisyUI CDN link -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- google Fonts -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+        .lato-thin {
+            font-family: "Lato", sans-serif;
+        }
+    </style>
+</head>
+
+<body class="lato-thin">
+    <header class="w-10/12 mx-auto">
+        <nav class="my-4">
+            <div class="navbar bg-base-100">
+                <div class="navbar-start">
+                    <div class="dropdown">
+                        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h8m-8 6h16" />
+                            </svg>
+                        </div>
+                        <ul tabindex="0"
+                            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                            <li><a>Home</a></li>
+                            <li> <a>Shope</a></li>
+                            <li><a>Contract</a></li>
+                        </ul>
+                    </div>
+
+                    <a class="btn btn-ghost text-3xl font-black">
+                        <img src="images/logo.webp" alt="" srcset="">
+                        Peddy</a>
+                </div>
+                <div class="navbar-center hidden lg:flex">
+                    <ul class="menu menu-horizontal px-1 text-base font-medium">
+                        <li><a>Home</a></li>
+                        <li> <a>Shope</a></li>
+                        <li><a>Contract</a></li>
+                    </ul>
+                </div>
+                <div class="navbar-end">
+                    <button class="border p-2 rounded-full w-10">
+                        <img src="https://img.icons8.com/?size=100&id=WNS8XGkd1Rhp&format=png&color=000000" alt=""
+                            srcset="">
+                    </button>
+
+                </div>
+            </div>
+        </nav>
+
+        <!-- main Header -->
+
+        <div class="my-20">
+            <div class="text-center">
+                <h4 class="text-2xl text-neutral-400 font-bold">Bringing Families Together ❤️‍🔥 </h4>
+                <h1 class="font-black text-7xl text-[#131313] my-8">Your Path to Adoption <br> Starts Here</h1>
+                <p class="font-medium text-base">It is a long established fact that a reader will be distracted by the
+                    readable content of a page when
+                    looking <br> at its layout. The point of using Lorem Ipsum is that it has a.</p>
+                <button class="my-7 font-bold text-xl  bg-[#0E7A81]  text-white py-3 px-8 rounded-xl">View More</button>
+            </div>
+            <div class="flex justify-center my-7">
+                <img src="images/pet.webp" alt="" srcset="">
+            </div>
+        </div>
+    </header>
+
+    <!-- main section -->
+    <main class="w-10/12 mx-auto">
+        <section>
+            <div class="text-center">
+                <h2 class="font-black text-4xl">Adopt Your Best Friend</h2>
+                <p class="font-medium text-base my-6">It is a long established fact that a reader will be distracted by
+                    the
+                    readable content of a page when
+                    looking <br> at its layout. The point of using Lorem Ipsum is that it has a.</p>
+            </div>
+            <!-- Btn container -->
+            <div class="flex justify-around">
+                <button class="my-7 font-bold text-xl  border  text-[#0E7A81] py-3 px-8 rounded-xl">Dogs</button>
+                <button class="my-7 font-bold text-xl  border  text-[#0E7A81] py-3 px-8 rounded-xl">Cats</button>
+                <button class="my-7 font-bold text-xl  border  text-[#0E7A81] py-3 px-8 rounded-xl">Rabbits</button>
+                <button class="my-7 font-bold text-xl  border  text-[#0E7A81] py-3 px-8 rounded-xl">Birds</button>
+            </div>
+
+            <!-- Beast Deal For you -->
+            <div class="flex justify-between items-center">
+                <h5 class="text-2xl font-black">Best Deal For you</h5>
+                <button class="my-7 font-bold text-base  bg-[#0E7A81]  text-white py-3 px-8 rounded-xl">Sort by
+                    Price</button>
+            </div>
+        </section>
+
+        <!-- card section -->
+        <section>
+            <div class="card-container my-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-24">
+                <div class="card bg-base-100 shadow-xl border border-gray-300">
+                    <figure class="px-5 pt-5">
+                        <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                            alt="Shoes" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body  px-5">
+                        <h2 class="card-title ">Shoes!</h2>
+                        <p>If a dog chews shoes whose shoes does he choose?</p>
+                        <div class="card-actions justify-between">
+                            <button class="btn btn-white w-24 border border-gray-300">
+                                <img width="50%" height="50%"
+                                    src="https://img.icons8.com/?size=100&id=SkbzwdwhI2sy&format=png&color=000000"
+                                    alt="">
+                            </button>
+                            <button class="btn border border-gray-300 text-[#0E7A81] font-bold text-base">Adopt</button>
+                            <button
+                                class="btn border border-gray-300 text-[#0E7A81] font-bold text-base">Details</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card bg-base-100 shadow-xl border border-gray-300">
+                    <figure class="px-5 pt-5">
+                        <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                            alt="Shoes" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body  px-5">
+                        <h2 class="card-title ">Shoes!</h2>
+                        <p>If a dog chews shoes whose shoes does he choose?</p>
+                        <div class="card-actions justify-between">
+                            <button class="btn btn-white w-24 border border-gray-300">
+                                <img width="50%" height="50%"
+                                    src="https://img.icons8.com/?size=100&id=SkbzwdwhI2sy&format=png&color=000000"
+                                    alt="">
+                            </button>
+                            <button class="btn border border-gray-300 text-[#0E7A81] font-bold text-base">Adopt</button>
+                            <button
+                                class="btn border border-gray-300 text-[#0E7A81] font-bold text-base">Details</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Double Card  -->
+                <div class=" card bg-base-100 shadow-xl border border-gray-300 ">
+                    <div class="grid grid-cols-2 gap-5 justify-center p-5">
+                        <div class="">
+                            <img class="rounded" src="https://i.ibb.co.com/p0w744T/pet-1.jpg" alt="" srcset="">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class=" bg-[#131313] text-base-content pt-20 pb-10 mt-24 text-white">
+        <div class="footer justify-between w-10/12 mx-auto">
+            <aside>
+                <div class="flex items-center gap-3">
+                    <div>
+                        <p class="text-3xl font-black"><img src="images/logo.webp" alt="" srcset=""></p>
+                    </div>
+                    <p class="text-3xl font-black">Peddy</p>
+                </div>
+                <p class="pt-5"> Location: av. Washington 165, NY CA 54003</p>
+                <p> Phone: +31 85 964 47 25</p>
+                <p>Email: info@yourdomain.com</p>
+                <p>Openings hours: 9.00 AM - 5.00 PM</p>
+                <!-- icons -->
+                <div class="flex w-8 gap-4">
+                    <img src="https://img.icons8.com/?size=100&id=uLWV5A9vXIPu&format=png&color=000000" alt="">
+                    <img src="https://img.icons8.com/?size=100&id=13963&format=png&color=000000" alt="">
+                    <img src="https://img.icons8.com/?size=100&id=19318&format=png&color=000000" alt="">
+                    <img src="https://img.icons8.com/?size=100&id=13930&format=png&color=000000" alt="">
+                </div>
+            </aside>
+            <nav>
+                <h6 class="footer-title">Services</h6>
+                <a class="link link-hover">Branding</a>
+                <a class="link link-hover">Design</a>
+                <a class="link link-hover">Marketing</a>
+                <a class="link link-hover">Advertisement</a>
+            </nav>
+            <nav>
+                <h6 class="footer-title">Company</h6>
+                <a class="link link-hover">About us</a>
+                <a class="link link-hover">Contact</a>
+                <a class="link link-hover">Jobs</a>
+                <a class="link link-hover">Press kit</a>
+            </nav>
+            <nav class="">
+                <h6 class="footer-title">Drop a Message</h6>
+                
+                    <input type="text" placeholder="Enter your email"
+                        class="input input-bordered input-info w-full max-w-xs" />
+                    <button class="font-bold text-base w-full  bg-[#0E7A81]  text-white py-3 px-8 rounded-xl">Subscribe</button>
+                
+            </nav>
+        </div>
+    </footer>
+</body>
+
+</html>
