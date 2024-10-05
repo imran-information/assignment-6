@@ -89,7 +89,7 @@
                     looking <br> at its layout. The point of using Lorem Ipsum is that it has a.</p>
             </div>
             <!-- Btn container -->
-            <div class="flex justify-around">
+            <div class="flex justify-around flex-wrap">
                 <button class="my-7 font-bold text-xl  border  text-[#0E7A81] py-3 px-8 rounded-xl">Dogs</button>
                 <button class="my-7 font-bold text-xl  border  text-[#0E7A81] py-3 px-8 rounded-xl">Cats</button>
                 <button class="my-7 font-bold text-xl  border  text-[#0E7A81] py-3 px-8 rounded-xl">Rabbits</button>
@@ -106,58 +106,40 @@
 
         <!-- card section -->
         <section>
-            <div class="card-container my-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-24">
-                <div class="card bg-base-100 shadow-xl border border-gray-300">
-                    <figure class="px-5 pt-5">
-                        <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                            alt="Shoes" class="rounded-xl" />
-                    </figure>
-                    <div class="card-body  px-5">
-                        <h2 class="card-title ">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                        <div class="card-actions justify-between">
-                            <button class="btn btn-white w-24 border border-gray-300">
-                                <img width="50%" height="50%"
-                                    src="https://img.icons8.com/?size=100&id=SkbzwdwhI2sy&format=png&color=000000"
-                                    alt="">
-                            </button>
-                            <button class="btn border border-gray-300 text-[#0E7A81] font-bold text-base">Adopt</button>
-                            <button
-                                class="btn border border-gray-300 text-[#0E7A81] font-bold text-base">Details</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card bg-base-100 shadow-xl border border-gray-300">
-                    <figure class="px-5 pt-5">
-                        <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                            alt="Shoes" class="rounded-xl" />
-                    </figure>
-                    <div class="card-body  px-5">
-                        <h2 class="card-title ">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                        <div class="card-actions justify-between">
-                            <button class="btn btn-white w-24 border border-gray-300">
-                                <img width="50%" height="50%"
-                                    src="https://img.icons8.com/?size=100&id=SkbzwdwhI2sy&format=png&color=000000"
-                                    alt="">
-                            </button>
-                            <button class="btn border border-gray-300 text-[#0E7A81] font-bold text-base">Adopt</button>
-                            <button
-                                class="btn border border-gray-300 text-[#0E7A81] font-bold text-base">Details</button>
-                        </div>
-                    </div>
-                </div>
-
-
+            <div id="card-container" class="card-container my-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-24">
                 <!-- Double Card  -->
                 <div class=" card bg-base-100 shadow-xl border border-gray-300 ">
                     <div class="grid grid-cols-2 gap-5 justify-center p-5">
                         <div class="">
-                            <img class="rounded" src="https://i.ibb.co.com/p0w744T/pet-1.jpg" alt="" srcset="">
+                            <img class="rounded" src="images/pet.webp" alt="" srcset="">
                         </div>
 
                     </div>
                 </div>
+                <!-- <div class="card bg-base-100 shadow-xl border border-gray-300">
+                    <figure class="px-5 pt-5">
+                        <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                            alt="Shoes" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body  px-5">
+                        <h2 class="card-title ">Shoes!</h2>
+                        <p>If a dog chews shoes whose shoes does he choose?</p>
+                        <div class="card-actions justify-between">
+                            <button class="btn btn-white w-24 border border-gray-300">
+                                <img width="50%" height="50%"
+                                    src="https://img.icons8.com/?size=100&id=SkbzwdwhI2sy&format=png&color=000000"
+                                    alt="">
+                            </button>
+                            <button class="btn border border-gray-300 text-[#0E7A81] font-bold text-base">Adopt</button>
+                            <button
+                                class="btn border border-gray-300 text-[#0E7A81] font-bold text-base">Details</button>
+                        </div>
+                    </div>
+                </div> -->
+
+
+
+                
             </div>
         </section>
     </main>
@@ -198,14 +180,16 @@
             </nav>
             <nav class="">
                 <h6 class="footer-title">Drop a Message</h6>
-                
-                    <input type="text" placeholder="Enter your email"
-                        class="input input-bordered input-info w-full max-w-xs" />
-                    <button class="font-bold text-base w-full  bg-[#0E7A81]  text-white py-3 px-8 rounded-xl">Subscribe</button>
-                
+
+                <input type="text" placeholder="Enter your email"
+                    class="input input-bordered input-info w-full max-w-xs" />
+                <button
+                    class="font-bold text-base w-full  bg-[#0E7A81]  text-white py-3 px-8 rounded-xl">Subscribe</button>
+
             </nav>
         </div>
     </footer>
+    <script src="js/peddy.js"></script>
 </body>
 
 </html>
