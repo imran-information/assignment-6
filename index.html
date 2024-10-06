@@ -88,13 +88,19 @@
                     readable content of a page when
                     looking <br> at its layout. The point of using Lorem Ipsum is that it has a.</p>
             </div>
-            <!-- Btn container -->
-            <div class="flex justify-around flex-wrap">
-                <button class="my-7 font-bold text-xl  border  text-[#0E7A81] py-3 px-8 rounded-xl">Dogs</button>
-                <button class="my-7 font-bold text-xl  border  text-[#0E7A81] py-3 px-8 rounded-xl">Cats</button>
-                <button class="my-7 font-bold text-xl  border  text-[#0E7A81] py-3 px-8 rounded-xl">Rabbits</button>
-                <button class="my-7 font-bold text-xl  border  text-[#0E7A81] py-3 px-8 rounded-xl">Birds</button>
+
+            <!-- categories Btn container -->
+            <div id="categories-container" class="flex justify-around flex-wrap">
+
             </div>
+
+            <!-- Loading Logo  -->
+            <div id="loading-logo" class="text-center hidden">
+                <span class="loading loading-ring loading-lg"></span>
+                
+            </div>
+
+
 
             <!-- Beast Deal For you -->
             <div class="flex justify-between items-center">
@@ -106,16 +112,8 @@
 
         <!-- card section -->
         <section>
-            <div id="card-container" class="card-container my-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-24">
-                <!-- Double Card  -->
-                <div class=" card bg-base-100 shadow-xl border border-gray-300 ">
-                    <div class="grid grid-cols-2 gap-5 justify-center p-5">
-                        <div class="">
-                            <img class="rounded" src="images/pet.webp" alt="" srcset="">
-                        </div>
+            <div id="card-container" class="card-container my-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-                    </div>
-                </div>
                 <!-- <div class="card bg-base-100 shadow-xl border border-gray-300">
                     <figure class="px-5 pt-5">
                         <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -137,8 +135,19 @@
                     </div>
                 </div> -->
 
+                <!-- Double Card  -->
+                <div class=" card bg-base-100 shadow-xl border border-gray-300 row-span-6 col-end-5 mt-6">
+                    <div class="grid grid-cols-2 gap-5 justify-center p-5">
+                        <div class="">
+                            <img class="rounded" src="images/pet.webp" alt="" srcset="">
+                        </div>
+
+                    </div>
+                </div>
 
 
+            </div>
+            <div id="error-container" class="hidden ">
                 
             </div>
         </section>
