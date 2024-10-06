@@ -7,6 +7,7 @@ const allDataLoad = async () => {
 }
 
 
+
 const categoryAllDataLoad = async () => {
     const res = await fetch(`https://openapi.programming-hero.com/api/peddy/categories`)
     const data = await res.json()
@@ -19,8 +20,11 @@ const displayAllCategory = (categories) => {
     categories.forEach(function (category) {
         // console.log(category);
 
+
         const categoriesContainer = document.getElementById('categories-container')
         const { category_icon, category: categoryName, id } = category
+
+
         const categoryDiv = document.createElement('div');
         categoryDiv.innerHTML = `
             <button id=${category.category} onclick="showLoading('${category.category}')" class="my-7 font-bold text-xl  border  text-[#0E7A81] py-3 px-8 rounded-xl flex items-center gap-0">
@@ -28,17 +32,18 @@ const displayAllCategory = (categories) => {
                 <p>${categoryName}</p>
             </button>
         `
+
         categoriesContainer.append(categoryDiv)
+
     })
 }
 
 const categoryWayesData = async (categoryId) => {
-    // console.log(categoryId);
+
 
     const res = await fetch(`https://openapi.programming-hero.com/api/peddy/category/${categoryId}`)
     const data = await res.json()
     displayAllPets(data.data);
-
 }
 
 
@@ -47,6 +52,11 @@ const categoryWayesData = async (categoryId) => {
 
 // loading Show
 const showLoading = (categoryId) => {
+    const btnRoundedFull = document.getElementById(categoryId);
+    btnRoundedFull.classList.remove('rounded-xl')
+    btnRoundedFull.classList.add('rounded-full')
+    btnRoundedFull.classList.add('bg-[#e7f2f2]')
+
     document.getElementById('card-container').innerHTML = ''
     document.getElementById('error-container').innerHTML = ''
 
@@ -88,24 +98,32 @@ const displayAllPets = (pets) => {
                             <p>Gender: ${gender}</p>
                             <p>Price: ${price}$</p>
                             <div class="card-actions justify-between">
-                                <button class="btn btn-white w-24 border border-gray-300">
+                                <button onclick="loveBtnImageSaved('${image}')" class="btn btn-white w-24 border border-gray-300">
                                     <img width="50%" height="50%"
                                         src="https://img.icons8.com/?size=100&id=SkbzwdwhI2sy&format=png&color=000000"
                                         alt="">
                                 </button>
-                                <button class="btn border border-gray-300 text-[#0E7A81] font-bold text-base">Adopt</button>
-                                <button
+                                <button onclick="displayAdoptCounterBtn('${petId}')" class="btn border border-gray-300 text-[#0E7A81] font-bold text-base">Adopt</button>
+                                <button onclick="loadDetails('${petId}')"
                                     class="btn border border-gray-300 text-[#0E7A81] font-bold text-base">Details</button>
                             </div>
                         </div>
-            
-            
             `
-            cardContainer.append(div)
+            cardContainer.appendChild(div)
+
         })
 
-    } else {
+        const doubleImageCard = document.createElement('div');
+        doubleImageCard.className = 'card bg-base-100 shadow-xl border border-gray-300 mt-6'
+        doubleImageCard.innerHTML = `
+            <div id="double-img" class="grid grid-cols-2 gap-5 justify-center p-5">
+                        
 
+            </div>
+        
+        `
+        cardContainer.appendChild(doubleImageCard)
+    } else {
         const errorContainer = document.getElementById('error-container');
         errorContainer.classList.remove('hidden')
         const div = document.createElement('div')
@@ -121,12 +139,93 @@ const displayAllPets = (pets) => {
         `
         errorContainer.append(div)
     }
+}
 
+
+
+
+
+// like btn click function
+const loveBtnImageSaved = (image) => {
+    const doubleImageContainer = document.getElementById('double-img')
+    const doubleImageDiv = document.createElement('div')
+    doubleImageDiv.innerHTML = `
+        
+        <img class="rounded w-full" src=${image} alt="" srcset="">
+        
+    `
+    doubleImageContainer.append(doubleImageDiv)
+
+}
+
+
+
+// details btn click function 
+// Display Details Data load 
+const loadDetails = async (petId) => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/peddy/pet/${petId}`)
+    const data = await res.json()
+    displayDetails(data.petData);
 
 
 
 }
 
+// Display Details Show
+const displayDetails = (petData) => {
+    const { pet_name, image, date_of_birth, pet_details, vaccinated_status, breed, gender, price } = petData
+
+    document.getElementById('details-content').innerHTML = `
+            <img class="w-full rounded" src=${image}/>
+            <h3 class="text-2xl my-3">${pet_name}</h3>
+        <div class="flex gap-4">
+            <div>
+                <p class="text-justify my-2 text-sm font-bold">Brand: ${breed}</p>
+                <p class="text-justify my-2 text-sm font-bold">Gender: ${gender}</p>
+                <p class="text-justify my-2 text-sm font-bold">Vaccinated status: ${vaccinated_status}</p>
+            </div>
+            <div>
+                <p class="text-justify my-2 text-sm font-bold">Birth: ${date_of_birth}</p>
+                <p class="text-justify my-2 text-sm font-bold">Price: ${price}</p>
+            </div>
+        </div>
+        <hr>
+        <h3 class="text-2xl my-3">Details Information</h3>
+        <p class="text-justify my-3 text-sm">${pet_details}</p>
+    `
+
+    document.getElementById('customModal').showModal()
+}
+
+
+const displayAdoptCounterBtn = () => {
+    document.getElementById('details-content').innerHTML = `
+            <h3 id="countdown" class="text-4xl my-3 text-center">3</h3>
+        
+    `
+    let count = 3; // Starting count
+
+    const countdownElement = document.getElementById('countdown');
+
+    const countdown = setInterval(() => {
+        count--;
+        countdownElement.textContent = count; // Update the display
+
+        if (count <= 0) {
+            // document.getElementById('modal-container').classList.add('hidden')
+            clearInterval(countdown); // Stop the countdown when it reaches 0
+            
+
+        }
+    }, 1000);
+
+
+
+    document.getElementById('customModal').showModal()
+
+}
+
+// Adopt btn count
 
 
 allDataLoad()
