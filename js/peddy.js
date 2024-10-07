@@ -2,8 +2,12 @@
 const allDataLoad = async () => {
     const res = await fetch('https://openapi.programming-hero.com/api/peddy/pets')
     const data = await res.json()
-    displayAllPets(data.pets);
-
+    
+    document.getElementById('loading-logo').classList.remove('hidden');
+    setTimeout(() => {
+        document.getElementById('loading-logo').classList.add('hidden');
+        displayAllPets(data.pets);
+    }, 2000)
 }
 
 
@@ -103,7 +107,7 @@ const displayAllPets = (pets) => {
                                         src="https://img.icons8.com/?size=100&id=SkbzwdwhI2sy&format=png&color=000000"
                                         alt="">
                                 </button>
-                                <button onclick="displayAdoptCounterBtn('${petId}')" class="btn border border-gray-300 text-[#0E7A81] font-bold text-base">Adopt</button>
+                                <button id="${petId}" onclick="displayAdoptCounterBtn('${petId}')" class="btn border border-gray-300 text-[#0E7A81] font-bold text-base">Adopt</button>
                                 <button onclick="loadDetails('${petId}')"
                                     class="btn border border-gray-300 text-[#0E7A81] font-bold text-base">Details</button>
                             </div>
@@ -167,8 +171,6 @@ const loadDetails = async (petId) => {
     const data = await res.json()
     displayDetails(data.petData);
 
-
-
 }
 
 // Display Details Show
@@ -198,10 +200,12 @@ const displayDetails = (petData) => {
 }
 
 
-const displayAdoptCounterBtn = () => {
+const displayAdoptCounterBtn = (petData) => {
+    // const petId = (petData);
+
     document.getElementById('details-content').innerHTML = `
-            <h3 id="countdown" class="text-4xl my-3 text-center">3</h3>
-        
+    <h3 id="countdown" class="text-4xl my-3 text-center">3</h3>
+    
     `
     let count = 3; // Starting count
 
@@ -214,13 +218,10 @@ const displayAdoptCounterBtn = () => {
         if (count <= 0) {
             // document.getElementById('modal-container').classList.add('hidden')
             clearInterval(countdown); // Stop the countdown when it reaches 0
-            
+         document.getElementById(`${petData}`).setAttribute('disabled', true)
 
         }
     }, 1000);
-
-
-
     document.getElementById('customModal').showModal()
 
 }
