@@ -105,7 +105,7 @@ const displayAllPets = (pets) => {
         })
 
         const doubleImageCard = document.createElement('div');
-        doubleImageCard.className = 'card bg-base-100 shadow-xl border border-gray-300 mt-6'
+        doubleImageCard.className = 'card bg-base-100 shadow-xl border border-gray-300 row-start-1 row-end-7'
         doubleImageCard.innerHTML = `
             <div id="double-img" class="grid grid-cols-2 gap-5 justify-center p-5">
                 
@@ -117,7 +117,7 @@ const displayAllPets = (pets) => {
         const errorContainer = document.getElementById('error-container');
         errorContainer.classList.remove('hidden')
         const div = document.createElement('div')
-        div.className = 'w-full bg-slate-200 rounded text-center py-20'
+        div.className = 'w-full bg-slate-200 rounded text-center py-20 p-5'
         div.innerHTML = `
             <div class="flex justify-center">
                 <img  src="images/error.webp" alt="" >
@@ -128,6 +128,7 @@ const displayAllPets = (pets) => {
         
         `
         errorContainer.append(div)
+
     }
 }
 
@@ -183,11 +184,12 @@ const displayDetails = (petData) => {
 
 // Adopt btn count
 
-const displayAdoptCounterBtn = (petData) => {
+const displayAdoptCounterBtn = (petId) => {
     // const petId = (petData);
 
-    document.getElementById('details-content').innerHTML = `
-    <h3 id="countdown" class="text-4xl my-3 text-center">3</h3>
+    document.getElementById('atop-content').innerHTML = `
+        <h3 id="countdown" class="text-4xl my-3 text-center">3</h3>
+        <h3 class="text-6xl my-3 text-center">Congrats</h3>
     
     `
     let count = 3; // Starting count
@@ -195,22 +197,29 @@ const displayAdoptCounterBtn = (petData) => {
     const countdownElement = document.getElementById('countdown');
 
     const countdown = setInterval(() => {
+
         count--;
-        countdownElement.textContent = count; // Update the display
+        countdownElement.textContent = count;
+
 
         if (count <= 0) {
-            // document.getElementById('modal-container').classList.add('hidden')
-            clearInterval(countdown); // Stop the countdown when it reaches 0
-            document.getElementById(`${petData}`).setAttribute('disabled', true)
-
+            clearInterval(countdown);
+            document.getElementById(`${petId}`).setAttribute('disabled', true)
+            // document.getElementById('adopt-section').classList.add('hidden')
+            modalClosed()
         }
     }, 1000);
-    document.getElementById('customModal').showModal()
+
+    my_modal_1.showModal()
 
 }
 
-
+const modalClosed = () => {
+    document.getElementById('adopt-section').classList.add('hidden')
+    // document.getElementById('modal-container').classList.remove('hidden')
+}
 
 
 allDataLoad()
 categoryAllDataLoad()
+

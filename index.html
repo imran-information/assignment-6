@@ -70,7 +70,7 @@
         <div class="my-20">
             <div class="text-center">
                 <h4 class="text-2xl text-neutral-400 font-bold">Bringing Families Together ❤️‍🔥 </h4>
-                <h1 class="font-black text-7xl text-[#131313] my-8">Your Path to Adoption <br> Starts Here</h1>
+                <h1 class="font-black text-4xl md:text-7xl text-[#131313] my-8 md:w-2/3 mx-auto">Your Path to Adoption  Starts Here</h1>
                 <p class="font-medium text-base">It is a long established fact that a reader will be distracted by the
                     readable content of a page when
                     looking <br> at its layout. The point of using Lorem Ipsum is that it has a.</p>
@@ -118,33 +118,14 @@
 
         <!-- card section -->
         <section id="main-section">
-            <div id="card-container"
-                class="card-container my-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 col-span-4">
+            <div class="">
+                <div id="card-container"
+                    class="card-container my-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-                <!-- <div class="card bg-base-100 shadow-xl border border-gray-300">
-                    <figure class="px-5 pt-5">
-                        <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                            alt="Shoes" class="rounded-xl" />
-                    </figure>
-                    <div class="card-body  px-5">
-                        <h2 class="card-title ">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                        <div class="card-actions justify-between">
-                            <button class="btn btn-white w-24 border border-gray-300">
-                                <img width="50%" height="50%"
-                                    src="https://img.icons8.com/?size=100&id=SkbzwdwhI2sy&format=png&color=000000"
-                                    alt="">
-                            </button>
-                            <button class="btn border border-gray-300 text-[#0E7A81] font-bold text-base">Adopt</button>
-                            <button
-                                class="btn border border-gray-300 text-[#0E7A81] font-bold text-base">Details</button>
-                        </div>
-                    </div>
-                </div> -->
 
+                </div>
                 <!-- Double Card  -->
-                <div
-                    class=" hidden card bg-base-100 shadow-xl border border-gray-300 row-span-6 col-span-1 col-end-5 mt-6">
+                <div class=" hidden card bg-base-100 shadow-xl border border-gray-300  mt-6">
                     <div class="grid grid-cols-2 gap-5 justify-center p-5">
                         <div class="">
                             <img class="rounded" src="images/pet.webp" alt="" srcset="">
@@ -152,16 +133,17 @@
 
                     </div>
                 </div>
-
-
             </div>
+
+
+            <!-- error section container -->
             <div id="error-container" class="hidden ">
 
             </div>
         </section>
 
-        <!-- Open the modal using ID.showModal() method -->
-        <!-- Modal section-->
+
+        <!-- Details bnt Open the modal  -->
         <section id="modal-container">
             <button class="btn hidden" onclick="customModal.showModal()">open modal</button>
             <dialog id="customModal" class="modal modal-bottom sm:modal-middle">
@@ -179,6 +161,27 @@
                 </div>
             </dialog>
         </section>
+
+        <!-- Adopt bnt Open the modal  -->
+        <section id="adopt-section">
+            <!-- Open the modal using ID.showModal() method -->
+            <button class="btn hidden" onclick="my_modal_1.showModal()">open modal</button>
+            <dialog id="my_modal_1" class="modal">
+                <div class="modal-box">
+                    <div id="atop-content">
+
+                    </div>
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <!-- if there is a button in form, it will close the modal -->
+                            <button class="btn">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
+        </section>
+
+
     </main>
     <footer class=" bg-[#131313] text-base-content pt-20 pb-10 mt-24 text-white">
         <div class="footer justify-between w-10/12 mx-auto">
