@@ -25,7 +25,7 @@ const displayAllCategory = (categories) => {
 
         const categoryDiv = document.createElement('div');
         categoryDiv.innerHTML = `
-            <button id=${category.category} onclick="showLoading('${category.category}')" class="my-7 font-bold text-xl  border  text-[#0E7A81] py-3 px-8 rounded-xl flex items-center gap-0">
+            <button id=${category.category} onclick="showLoading('${category.category}')" class="my-7 font-bold text-xl  border  text-[#0E7A81] py-3 px-8 rounded-xl flex items-center gap-0 btn-style">
                 <div class="w-3/4"><img class="w-3/4" src=${category_icon} alt="" srcset=""></div>
                 <p>${categoryName}</p>
             </button>
@@ -43,13 +43,22 @@ const categoryWayesData = async (categoryId) => {
 }
 
 
+const removeBtnStyle = () => {
+    const removeBtnStyles = document.getElementsByClassName('btn-style');
+    for (const btn of removeBtnStyles) {
+        btn.classList.add('rounded-xl')
+        btn.classList.remove('rounded-full')
+        btn.classList.remove('bg-[#e7f2f2]')
+    }
 
+}
 
 
 
 // loading Show
 const showLoading = (categoryId) => {
     const btnRoundedFull = document.getElementById(categoryId);
+    removeBtnStyle()
     btnRoundedFull.classList.remove('rounded-xl')
     btnRoundedFull.classList.add('rounded-full')
     btnRoundedFull.classList.add('bg-[#e7f2f2]')
