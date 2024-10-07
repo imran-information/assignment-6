@@ -2,7 +2,7 @@
 const allDataLoad = async () => {
     const res = await fetch('https://openapi.programming-hero.com/api/peddy/pets')
     const data = await res.json()
-    
+
     document.getElementById('loading-logo').classList.remove('hidden');
     setTimeout(() => {
         document.getElementById('loading-logo').classList.add('hidden');
@@ -11,23 +11,17 @@ const allDataLoad = async () => {
 }
 
 
-
+// categoryAllDataLoad
 const categoryAllDataLoad = async () => {
     const res = await fetch(`https://openapi.programming-hero.com/api/peddy/categories`)
     const data = await res.json()
     displayAllCategory(data.categories);
 }
 
-
-
 const displayAllCategory = (categories) => {
     categories.forEach(function (category) {
-        // console.log(category);
-
-
         const categoriesContainer = document.getElementById('categories-container')
         const { category_icon, category: categoryName, id } = category
-
 
         const categoryDiv = document.createElement('div');
         categoryDiv.innerHTML = `
@@ -36,19 +30,18 @@ const displayAllCategory = (categories) => {
                 <p>${categoryName}</p>
             </button>
         `
-
         categoriesContainer.append(categoryDiv)
-
     })
 }
 
+// categoryIdDataLoad
+
 const categoryWayesData = async (categoryId) => {
-
-
     const res = await fetch(`https://openapi.programming-hero.com/api/peddy/category/${categoryId}`)
     const data = await res.json()
     displayAllPets(data.data);
 }
+
 
 
 
@@ -71,12 +64,6 @@ const showLoading = (categoryId) => {
         categoryWayesData(categoryId)
     }, 2000)
 }
-
-
-
-
-
-
 
 
 const displayAllPets = (pets) => {
@@ -121,8 +108,7 @@ const displayAllPets = (pets) => {
         doubleImageCard.className = 'card bg-base-100 shadow-xl border border-gray-300 mt-6'
         doubleImageCard.innerHTML = `
             <div id="double-img" class="grid grid-cols-2 gap-5 justify-center p-5">
-                        
-
+                
             </div>
         
         `
@@ -146,9 +132,6 @@ const displayAllPets = (pets) => {
 }
 
 
-
-
-
 // like btn click function
 const loveBtnImageSaved = (image) => {
     const doubleImageContainer = document.getElementById('double-img')
@@ -161,7 +144,6 @@ const loveBtnImageSaved = (image) => {
     doubleImageContainer.append(doubleImageDiv)
 
 }
-
 
 
 // details btn click function 
@@ -199,6 +181,7 @@ const displayDetails = (petData) => {
     document.getElementById('customModal').showModal()
 }
 
+// Adopt btn count
 
 const displayAdoptCounterBtn = (petData) => {
     // const petId = (petData);
@@ -218,7 +201,7 @@ const displayAdoptCounterBtn = (petData) => {
         if (count <= 0) {
             // document.getElementById('modal-container').classList.add('hidden')
             clearInterval(countdown); // Stop the countdown when it reaches 0
-         document.getElementById(`${petData}`).setAttribute('disabled', true)
+            document.getElementById(`${petData}`).setAttribute('disabled', true)
 
         }
     }, 1000);
@@ -226,7 +209,7 @@ const displayAdoptCounterBtn = (petData) => {
 
 }
 
-// Adopt btn count
+
 
 
 allDataLoad()
