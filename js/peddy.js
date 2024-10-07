@@ -42,7 +42,7 @@ const categoryWayesData = async (categoryId) => {
     displayAllPets(data.data);
 }
 
-
+// removeBtnStyle BTN
 const removeBtnStyle = () => {
     const removeBtnStyles = document.getElementsByClassName('btn-style');
     for (const btn of removeBtnStyles) {
@@ -75,7 +75,10 @@ const showLoading = (categoryId) => {
 }
 
 
+// all Pets display
 const displayAllPets = (pets) => {
+    console.log(pets);
+
     const cardContainer = document.getElementById('card-container')
     if (pets.length > 0) {
         pets.forEach(function (pet) {
@@ -92,11 +95,11 @@ const displayAllPets = (pets) => {
                                 alt="Shoes" class="rounded-xl" />
                         </figure>
                         <div class="card-body  px-5">
-                            <h2 class="card-title ">${pet_name}</h2>
-                            <p>Breed: ${breed}</p>
-                            <p>Birth: ${date_of_birth}</p>
-                            <p>Gender: ${gender}</p>
-                            <p>Price: ${price}$</p>
+                            <h2 class="card-title ">${pet_name ? pet_name : "Not available"}</h2>
+                            <p>Breed: ${breed ? breed : "Not available"}</p>
+                            <p>Birth: ${date_of_birth ? date_of_birth : "Not available"}</p>
+                            <p>Gender: ${gender ? gender : "Not available"}</p>
+                            <p>Price: ${price ? price + "$" : "Not available"}</p>
                             <div class="card-actions justify-between">
                                 <button onclick="loveBtnImageSaved('${image}')" class="btn btn-white w-24 border border-gray-300">
                                     <img width="50%" height="50%"
@@ -132,7 +135,7 @@ const displayAllPets = (pets) => {
                 <img  src="images/error.webp" alt="" >
             </div>
             <h2 class="text-3xl font-bold">No Information Available</h2>
-            <h2 class="text-base font-semibold pt-4">It is a long established fact that a reader will be distracted by the readable content of a page when looking at 
+            <h2 class="font-medium text-base text-neutral-500 pt-4">It is a long established fact that a reader will be distracted by the readable content of a page when looking at 
                 its layout. <br> The point of using Lorem Ipsum is that it has a.</h2>
         
         `
@@ -192,7 +195,6 @@ const displayDetails = (petData) => {
 }
 
 // Adopt btn count
-
 const displayAdoptCounterBtn = (petId) => {
     // const petId = (petData);
 
@@ -202,19 +204,16 @@ const displayAdoptCounterBtn = (petId) => {
     
     `
     let count = 3; // Starting count
-
     const countdownElement = document.getElementById('countdown');
-
     const countdown = setInterval(() => {
-
         count--;
         countdownElement.textContent = count;
-
-
         if (count <= 0) {
             clearInterval(countdown);
             document.getElementById(`${petId}`).setAttribute('disabled', true)
             // document.getElementById('adopt-section').classList.add('hidden')
+            document.getElementById(`${petId}`).innerText = "Adopted"
+
             modalClosed()
         }
     }, 1000);
@@ -224,8 +223,8 @@ const displayAdoptCounterBtn = (petId) => {
 }
 
 const modalClosed = () => {
-    document.getElementById('adopt-section').classList.add('hidden')
-    // document.getElementById('modal-container').classList.remove('hidden')
+    // document.getElementById('adopt-section').classList.add('hidden')
+
 }
 
 
