@@ -2,11 +2,14 @@
 const allDataLoad = async () => {
     const res = await fetch('https://openapi.programming-hero.com/api/peddy/pets')
     const data = await res.json()
+    console.log(data.pets);
+
 
     document.getElementById('loading-logo').classList.remove('hidden');
     setTimeout(() => {
         document.getElementById('loading-logo').classList.add('hidden');
         displayAllPets(data.pets);
+        ShortByPrice(data.pets)
     }, 2000)
 }
 
@@ -26,7 +29,9 @@ const displayAllCategory = (categories) => {
         const categoryDiv = document.createElement('div');
         categoryDiv.innerHTML = `
             <button id=${category.category} onclick="showLoading('${category.category}')" class="my-7 font-bold text-xl  border  text-[#0E7A81] py-3 px-8 rounded-xl flex items-center gap-0 btn-style">
-                <div class="w-3/4"><img class="w-3/4" src=${category_icon} alt="" srcset=""></div>
+                <div class="w-3/4">
+                    <img class="w-3/4" src=${category_icon} alt="" srcset="">
+                </div>
                 <p>${categoryName}</p>
             </button>
         `
@@ -77,8 +82,6 @@ const showLoading = (categoryId) => {
 
 // all Pets display
 const displayAllPets = (pets) => {
-    console.log(pets);
-
     const cardContainer = document.getElementById('card-container')
     if (pets.length > 0) {
         pets.forEach(function (pet) {
@@ -194,40 +197,101 @@ const displayDetails = (petData) => {
     document.getElementById('customModal').showModal()
 }
 
-// Adopt btn count
-const displayAdoptCounterBtn = (petId) => {
-    // const petId = (petData);
 
+
+
+
+// // Adopt btn count
+// const displayAdoptCounterBtn = (petId) => {
+//     // const petId = (petData);
+
+//     document.getElementById('atop-content').innerHTML = `
+//         <h3 id="countdown" class="text-4xl my-3 text-center">3</h3>
+//         <h3 class="text-6xl my-3 text-center">Congrats</h3>
+
+//     `
+//     let count = 3; // Starting count
+//     const countdownElement = document.getElementById('countdown');
+//     const countdown = setInterval(() => {
+//         count--;
+//         countdownElement.textContent = count;
+//         if (count <= 0) {
+//             clearInterval(countdown);
+//             document.getElementById(`${petId}`).setAttribute('disabled', true)
+//             // document.getElementById('adopt-section').classList.add('hidden')
+//             document.getElementById(`${petId}`).innerText = "Adopted"
+//             modalClosed()
+//         }
+//     }, 1000);
+//     my_modal_1.showModal()
+// }
+
+// const modalClosed = () => {
+//     // document.getElementById('my_modal_1').classList.add('hidden')
+
+// }
+
+
+// const ShortByPrice = (pets) => {
+//     pets.forEach(function (pet) {
+//         // console.log(pet.price);
+
+//     })
+
+// }
+
+
+
+// allDataLoad()
+// categoryAllDataLoad()
+
+const displayAdoptCounterBtn = (petId) => {
+
+    document.getElementById('adopt-section').classList.remove('hidden');
     document.getElementById('atop-content').innerHTML = `
         <h3 id="countdown" class="text-4xl my-3 text-center">3</h3>
         <h3 class="text-6xl my-3 text-center">Congrats</h3>
-    
-    `
-    let count = 3; // Starting count
+    `;
+
+    let count = 3;
     const countdownElement = document.getElementById('countdown');
     const countdown = setInterval(() => {
         count--;
         countdownElement.textContent = count;
+
         if (count <= 0) {
             clearInterval(countdown);
-            document.getElementById(`${petId}`).setAttribute('disabled', true)
-            // document.getElementById('adopt-section').classList.add('hidden')
-            document.getElementById(`${petId}`).innerText = "Adopted"
 
-            modalClosed()
+
+            const adoptButton = document.getElementById(`${petId}`);
+            adoptButton.setAttribute('disabled', true);
+            adoptButton.innerText = "Adopted";
+
+
+            modalClosed();
         }
     }, 1000);
 
-    my_modal_1.showModal()
 
+    const myModal = document.getElementById('my_modal_1');
+    if (myModal) {
+        myModal.showModal();
+    } else {
+        console.error("Modal not found! Ensure the modal ID is 'my_modal_1'.");
+    }
 }
 
 const modalClosed = () => {
-    // document.getElementById('adopt-section').classList.add('hidden')
 
+    const myModal = document.getElementById('my_modal_1');
+    if (myModal) {
+        myModal.close();
+    }
+
+
+    document.getElementById('adopt-section').classList.add('hidden');
 }
 
 
-allDataLoad()
-categoryAllDataLoad()
-
+allDataLoad();
+categoryAllDataLoad();
